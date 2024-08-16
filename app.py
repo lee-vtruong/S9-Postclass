@@ -65,7 +65,7 @@ elif option == 'Inference':
     
     if uploaded_file is not None:
         image = Image.open(uploaded_file).convert('L').resize((28, 28))
-        img_array = np.array(image) / 255.0
+        img_array = 1 - np.array(image) / 255.0
         img_array = np.expand_dims(img_array, axis=0)
         
         model = create_model()
